@@ -21,8 +21,6 @@ def build(
     config: MoEMergeConfig,
     out_path: str,
     merge_options: MergeOptions,
-    load_in_4bit: bool = False,
-    load_in_8bit: bool = False,
     device: str = "auto",
     allow_all_same: bool = False,
     verbose: bool = False,
@@ -56,8 +54,6 @@ def build(
         tokenizer,
         need_gates,
         mode=config.gate_mode,
-        load_in_4bit=load_in_4bit,
-        load_in_8bit=load_in_8bit,
         lazy_unpickle=merge_options.lazy_unpickle,
         trust_remote_code=merge_options.trust_remote_code,
         device=device,
@@ -143,20 +139,6 @@ def select_output_arch(
 @click.argument("config_path", type=click.Path(exists=True, dir_okay=False))
 @click.argument("out_path", type=click.Path())
 @click.option(
-    "--load-in-4bit",
-    is_flag=True,
-    type=bool,
-    default=False,
-    help="Load model in 4bit for computing hidden states",
-)
-@click.option(
-    "--load-in-8bit",
-    is_flag=True,
-    type=bool,
-    default=False,
-    help="Load model in 8bit for computing hidden states",
-)
-@click.option(
     "--i-understand-this-is-not-useful-without-training",
     type=bool,
     default=False,
@@ -167,8 +149,6 @@ def select_output_arch(
 def main(
     config_path: str,
     out_path: str,
-    load_in_4bit: bool,
-    load_in_8bit: bool,
     i_understand_this_is_not_useful_without_training: bool,
     merge_options: MergeOptions,
 ):
@@ -183,8 +163,6 @@ def main(
         config,
         out_path=out_path,
         merge_options=merge_options,
-        load_in_4bit=load_in_4bit,
-        load_in_8bit=load_in_8bit,
         device=merge_options.device,
         allow_all_same=i_understand_this_is_not_useful_without_training,
         verbose=merge_options.verbosity > 0,

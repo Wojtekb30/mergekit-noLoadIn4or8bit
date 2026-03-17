@@ -73,8 +73,6 @@ def get_gate_params(
     tokenizer: transformers.PreTrainedTokenizerBase,
     experts: List[Expert],
     mode: str = "hidden",
-    load_in_4bit: bool = False,
-    load_in_8bit: bool = False,
     lazy_unpickle: bool = False,
     trust_remote_code: bool = False,
     device: str = "auto",
@@ -119,8 +117,6 @@ def get_gate_params(
             torch_dtype=torch.bfloat16,
             device_map=device,
             low_cpu_mem_usage=True,
-            load_in_4bit=load_in_4bit,
-            load_in_8bit=load_in_8bit,
             trust_remote_code=trust_remote_code,
         )
 
