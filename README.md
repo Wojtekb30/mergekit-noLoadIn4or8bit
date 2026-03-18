@@ -376,3 +376,41 @@ If you find `mergekit` useful in your research, please consider citing the [pape
     abstract = "The rapid growth of open-source language models provides the opportunity to merge model checkpoints, combining their parameters to improve performance and versatility. Advances in transfer learning have led to numerous task-specific models, which model merging can integrate into powerful multitask models without additional training. MergeKit is an open-source library designed to support this process with an efficient and extensible framework suitable for any hardware. It has facilitated the merging of thousands of models, contributing to some of the world{'}s most powerful open-source model checkpoints. The library is accessible at: https://github.com/arcee-ai/mergekit.",
 }
 ```
+
+# Installing llama.cpp and git XET
+
+I written it here mostly for myself. But llama.cpp can be used to make GGUFs of MoE models too, then it's best to quantize them to Q4_K_M.
+
+```sh
+git clone https://github.com/ggml-org/llama.cpp.git
+
+cd llama.cpp
+mkdir build && cd build
+
+cmake ..
+cmake --build . --config Release -j$(nproc)
+```
+
+Install with CUDA support tutorial:
+
+https://aleksandarhaber.com/how-to-compile-and-build-the-gpu-version-of-llama-cpp-from-source-and-run-llm-models-on-gpu/
+
+And how to install git XET directly (needs Ubuntu 24, tends to fail on 22 and older):
+
+```sh
+git clone https://github.com/huggingface/xet-core
+
+cd xet-core
+cd git_xet
+
+apt-get update && apt-get install git-lfs
+
+git lfs install
+
+chmod +x install.sh
+
+./install.sh
+
+git xet install
+```
+
