@@ -59,6 +59,18 @@ Key features of `mergekit` include:
 
 ## Installation
 
+From my repository:
+
+```sh
+git clone https://github.com/Wojtekb30/mergekit-noLoadIn4or8bit.git
+mv mergekit-noLoadIn4or8bit mergekit
+cd mergekit
+
+pip install -e .  # install the package and make scripts available
+```
+
+Original from its own repository:
+
 ```sh
 git clone https://github.com/arcee-ai/mergekit.git
 cd mergekit
