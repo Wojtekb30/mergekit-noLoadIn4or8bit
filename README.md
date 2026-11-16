@@ -387,7 +387,7 @@ git clone https://github.com/ggml-org/llama.cpp.git
 cd llama.cpp
 mkdir build && cd build
 
-cmake ..
+cmake .. -DGGML_CUDA=ON
 cmake --build . --config Release -j$(nproc)
 ```
 
