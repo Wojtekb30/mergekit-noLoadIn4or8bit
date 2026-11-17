@@ -391,10 +391,6 @@ cmake .. -DGGML_CUDA=ON
 cmake --build . --config Release -j$(nproc)
 ```
 
-Install with CUDA support tutorial:
-
-https://aleksandarhaber.com/how-to-compile-and-build-the-gpu-version-of-llama-cpp-from-source-and-run-llm-models-on-gpu/
-
 And how to install git XET directly (needs Ubuntu 24, tends to fail on 22 and older):
 
 ```sh
